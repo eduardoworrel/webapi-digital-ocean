@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY ./ ./
 
-RUN dotnet publish Nomes.Web.API.csproj -c release -o /out
+RUN dotnet publish webapi-digital-ocean.csproj -c release -o /out
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0
@@ -14,4 +14,4 @@ COPY --from=build /out ./
 
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "Nomes.Web.API.dll"]
+ENTRYPOINT ["dotnet", "webapi-digital-ocean.dll"]
